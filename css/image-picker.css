@@ -28,4 +28,8 @@ ul.thumbnails.image_picker_selector {
     ul.thumbnails.image_picker_selector li .thumbnail.selected {
       background: #0088cc; }
     
-    
+   .contenedor {
+        width: 80%;
+        margin: auto;
+        
+    }    

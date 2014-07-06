@@ -7,12 +7,8 @@
     </head>
     <body bgcolor="#FFFFCC">
         
-  
- 
+   
   <br><br>
-
-        
-
         
         <?php       
         
@@ -21,9 +17,6 @@
         
         mkdir($pathname); 
         chmod($pathname,  0777);
-
-        
-
         
        ?> 
         

@@ -30,7 +30,7 @@
     	<hgroup class="twelvecol center">
 				<!--<h1>Responsive Slider</h1>-->
 				<!--<h2>Using 1140px CSS Grid and FlexSlider</h2>-->
-			</hgroup>
+	</hgroup>
     </header>
     
     <div id="main" class="row">
@@ -44,8 +44,6 @@
                             
                             $directorio=$_GET['directorio'];
                             
-//                             $directorio = "imagenes/";
-        
         if (is_dir($directorio)) {
             $dd = opendir($directorio);
             if ($dd) {

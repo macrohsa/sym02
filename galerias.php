@@ -13,7 +13,7 @@
         <title>Miniaturas galería</title>
     </head>
     <body bgcolor="#FFFFCC">
-        
+        <div class="contenedor">
         <form action="eliminarImagenes.php" method="post" enctype="multipart/form-data"> 
        
         <?php
@@ -43,17 +43,13 @@
         if (is_array($imagenes)) {
             
             natcasesort($imagenes);
+        }
        ?>     
             <center><h2>Mi galería de imágenes</h2></center><br />
-            <center><a href='sliderPHP.php?directorio=$directorio' title='Visor'>Visor imagenes</a>
+            <center><a href='sliderPHP.php?directorio=<?php echo $directorio; ?>' title='Visor'>Visor imagenes</a>
             <br><br>
 
-      <?php
-        }
-//        foreach ($vectorCheck as $vec) {
-//            echo $vec;
-//        }
-     ?> 
+
 
             <select name="seleccion[]" multiple="multiple" class="image-picker show-html"  hidden="true" >
      <?php
@@ -70,13 +66,12 @@
        <!--<input type="hidden" name="nroi" id="nroi" value="<?php echo $i; ?>">-->
         <br><br>
 
-        <br><br>
         
         <input type="submit" value="Eliminar Archivos">
          <br><br>
 
         <br><br>
-        <left><a href='formularioPHP.php?directorio=$directorio' title='Subir archivos'>Subir archivos a galería</a>
+        <left><a href='formularioPHP.php?directorio=<?php echo $directorio; ?>' title='Subir archivos'>Subir archivos a galería</a>
            
         <br><br>
 
@@ -96,6 +91,6 @@
            
            
 </form>  
-        
+        </div>
     </body>
 </html>
