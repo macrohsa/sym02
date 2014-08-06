@@ -27,13 +27,13 @@
 
         $pathname=$dire;
         
-        $directorio = $pathname."/";
+        $directorio = $pathname;
 
         if (is_dir($directorio)) {
             if ($dd = opendir($directorio)) {
                 while (($archivo = readdir($dd)) !== false) {
-                    if (filetype($directorio.$archivo) == 'file') {
-                        $imagenes[] = $directorio.$archivo;
+                    if (filetype($directorio."/".$archivo) == 'file') {
+                        $imagenes[] = $directorio."/".$archivo;
                     }
                 }
                 closedir($dd);
@@ -57,13 +57,13 @@
      foreach ($imagenes as $imagen) {
          $i++;
      ?> 
-              <option data-img-src="http://localhost/Imagenes/phpThumb/phpThumb.php?src=../<?php echo $imagen; ?>&w=100&h=80" value="<?php echo $imagen; ?>"><?php echo $imagen; ?></option>
+              <option data-img-src="http://localhost/Imagenes/phpThumb/phpThumb.php?src=../<?php echo $imagen; ?>&w=100&h=100" value="<?php echo $imagen; ?>"><?php echo $imagen; ?></option>
       <?php
      }
      ?>         
               
             </select>
-       <!--<input type="hidden" name="nroi" id="nroi" value="<?php echo $i; ?>">-->
+
         <br><br>
 
         

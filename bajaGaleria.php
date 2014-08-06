@@ -22,7 +22,7 @@
         
             $carpeta=$_POST["gale"];
 
-//            echo $carpeta;
+            echo $carpeta;
 
             foreach(glob($carpeta . "/*") as $archivos_carpeta)
             {
@@ -38,8 +38,8 @@
 //            unlink($archivos_carpeta);
 //            }
             }
-//
-//            rmdir($carpeta);
+
+            rmdir($carpeta);
             
 
         

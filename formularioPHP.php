@@ -14,14 +14,16 @@ $memory_limit = (int)(ini_get('memory_limit'));
 $upload_mb = min($max_upload, $max_post, $memory_limit);
 
 echo "Tamaño maximo permitido <strong>$upload_mb Mb</strong><br>";
+echo "Tamaño maximo upload <strong>$max_upload Mb</strong><br>";
+echo "Tamaño maximo memory <strong>$memory_limit Mb</strong><br>";
 
 echo "<br><br>";
 $dir=$_GET['directorio'];
-$gale=$dir;
+$gale=$dir."/";
 
 ?>
 <form action="newEmptyPHP.php" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="directorio" id="directorio" value="<?php echo $dir; ?>">
+    <input type="hidden" name="directorio" id="directorio" value="<?php echo $dir."/"; ?>">
     
 	<label>Archivos</label>
 	<input type="file" name="archivo[]" multiple>

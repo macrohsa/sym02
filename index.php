@@ -25,7 +25,6 @@
                  <option value="val">Seleccionar galeria</option>
                  <option value="imagenes">imagenes</option>
                  <option value="imagenes03">imagenes03</option>
-                 <option value="sasa02">sasa02</option>
               </select>
 
 	<br><br>

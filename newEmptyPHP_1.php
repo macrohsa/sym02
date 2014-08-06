@@ -23,10 +23,10 @@ function moverArchivos($archivos,$directorio){ //Optimizada para multiples archi
 	$extensiones = array('gif','jpg','jpe','jpeg','png'); //extensiones permitidas
 	
 	if (file_exists($directorio) && is_writable($directorio)) { //comprueba si el directorio existe y si es posible escribir
-		
+		if(isset($archivos["archivo"]["error"])){
 			
 			foreach ($archivos["archivo"]["error"] as $key => $error) {
-				if ($error == UPLOAD_ERR_OK) {
+				if ($error == 0) {
 					$trozo = explode(".",$archivos["archivo"]["name"][$key]); //obtenemos la extensión
 					$extension = strtolower(end($trozo)); //la pasamos a minuscula
 					$valido = false;
@@ -41,7 +41,12 @@ function moverArchivos($archivos,$directorio){ //Optimizada para multiples archi
 						$nombre_archivo = date("Ymd") . "_" . date("is"). "_img_".$trozo[0].".".$extension; //generamos un nombre personalizable
 						$ubicacion_original = $archivos["archivo"]["tmp_name"][$key]; //ubicacion original y temporal del archivo
 						
-						move_uploaded_file($ubicacion_original,$directorio."/".$nombre_archivo);
+						if(!move_uploaded_file($ubicacion_original,"$directorio/$nombre_archivo")){
+							echo "No se puede mover el archivo \n";
+						}
+						else{
+							$ubicaciones[] = $nombre_archivo;
+						}
 					}
 					else{
 						echo "Extension de archivo no valida \n";
@@ -56,7 +61,8 @@ function moverArchivos($archivos,$directorio){ //Optimizada para multiples archi
 				}
 			}
 			return $ubicaciones;
-
+		} //fin del existe error
+		else { echo "Uno de los archivos sobrepasa la capacidad establecida por el servidor";}
 	}
 	else {
 		echo "No existe la carpeta para subir archivos o no tiene los permisos suficientes.";
